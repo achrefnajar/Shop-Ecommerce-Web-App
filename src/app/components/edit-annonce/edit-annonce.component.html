@@ -1,0 +1,81 @@
+<div class="container-fluid">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Edit Annonce</span></h2>
+    <div class="row px-xl-5">
+        <div class="col-lg-7 mb-5 ">
+            <div class="contact-form bg-light p-30">
+                <div id="success"></div>
+                <form [formGroup]="productForm">
+                    <div class="control-group form-group">
+                        <input type="text" class="form-control" formControlName="description" [(ngModel)]="prod.description"  placeholder=" description "/> 
+                    </div>
+                    <div *ngIf="productForm.controls['description'].invalid && 
+                (productForm.controls['description'].touched || productForm.controls['description'].dirty) ">
+
+                <div *ngIf="productForm.controls['description'].errors.required">
+                  Description is required 
+                </div>
+                </div>
+
+
+                    <div class="control-group form-group">
+                        <input type="number" class="form-control" formControlName="price" [(ngModel)]="prod.price"  placeholder="price" />
+                        
+                    </div>
+                    <div *ngIf="productForm.controls['price'].invalid && 
+                (productForm.controls['price'].touched || productForm.controls['price'].dirty) ">
+
+                <div *ngIf="productForm.controls['price'].errors.required" style="color: red;">
+                  price is required
+                </div>
+                <div *ngIf="productForm.controls['price'].errors.min">
+                  price have must 1
+
+                </div>
+                </div>
+
+                    <div class="control-group form-group">
+                        <input type="number" class="form-control" formControlName="qty" [(ngModel)]="prod.qty"  placeholder="qty" />
+                        
+                    </div>
+                    <div *ngIf="productForm.controls['qty'].invalid && 
+                (productForm.controls['qty'].touched || productForm.controls['qty'].dirty) ">
+
+                <div *ngIf="productForm.controls['qty'].errors.required" style="color: red;">
+                  Qty is required
+                </div>
+
+                <div *ngIf="productForm.controls['qty'].errors.min">
+                    Qty must 1
+  
+                  </div>
+                
+                </div>
+                <div class="control-group form-group">
+                <select class="custom-select" formControlName="category" [(ngModel)]="prod.category" name="category">
+                  <option selected>select category</option>
+                  <option value="electronic">electronic</option>
+                  <option value="clothes">clothes</option>
+                </select>
+              </div>
+              
+              <div class="text-center">
+                <button class="btn btn-danger" (click)="filePicker.click()">Select your avatar</button>
+              </div>  
+
+              <div class="form-group">
+                <input type="file" class="form-control" #filePicker (change)='onImageSelected($event)' style="visibility: hidden;" >
+              </div>
+
+              <div class="text-center" style="margin-bottom: 20px;">
+                <img [src]="imagePreview" *ngIf="imagePreview" alt="avatar">
+              </div>
+                    
+                    <div>
+                        <button class="btn btn-primary py-2 px-4" type="submit" (click)="editAnnonce()" >Edit Annonce</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+    </div>
+</div>

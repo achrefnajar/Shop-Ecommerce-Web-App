@@ -1,0 +1,35 @@
+<table class="table text-center">
+    <thead>
+        <tr >
+            <th scope="col">Name Annonce</th>
+            
+            <th scope="col">Qty reservée</th>
+            <th scope="col"> price</th>
+            <th scope="col"> qty en stoke</th>
+            <th scope="col"> name User</th>
+            <th scope="col"> Eamil</th>
+            
+            <th scope="col">Action</th>
+           
+    
+        </tr>
+    </thead>
+    <tbody id="">
+        
+        <tr *ngFor="let item of T">
+            <td>{{item.annonce[0].description}}</td>
+            <td>{{item.qty}}</td>
+            <td>{{item.annonce[0].price}}</td>
+            <td>{{item.annonce[0].qty}}</td>
+            <td>{{item.user[0].firstName}}</td>
+            <td>{{item.user[0].email}}</td>
+            
+            <td>
+                <button style="margin-right: 10px;" class=" btn-success" (click)="gotoDisplay(item._id)">Display</button>
+                    <button class=" btn-warning " (click)="gotoEdit(item.id)">Edit</button>
+                    <button style="margin-left: 10px;" class=" btn-danger" (click)="delete(item._id)">Delete</button>
+            </td>  
+        </tr>
+        
+    </tbody>
+</table>

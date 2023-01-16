@@ -1,0 +1,37 @@
+<div class="container" style="margin-top:150px ;">
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#users" role="tab" aria-controls="home"
+                aria-selected="true">Users</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#annonces" role="tab" aria-controls="profile"
+                aria-selected="false">Products</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#stadium" role="tab" aria-controls="stadium"
+                aria-selected="false">orders</a>
+        </li>
+        
+
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="users" role="tabpanel" aria-labelledby="home-tab">
+             <app-user-table></app-user-table>
+        </div>
+
+        <div class="tab-pane fade " id="annonces" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="table-responsive text-center">
+               <app-annonce-table></app-annonce-table>
+            </div>
+        </div>
+        <div class="tab-pane fade" id="stadium" role="tabpanel" aria-labelledby="profile-tab">
+            <div class="table-responsive text-center">
+                <app-order-table></app-order-table>
+            </div>
+        </div>
+        
+        
+
+    </div>
+</div>
